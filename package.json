@@ -24,7 +24,7 @@
     "extends": "react-app"
   },
   "engines": {
-    "node": "10.15.1"
+    "node": "14.9.0"
   },
   "browserslist": {
     "production": [
