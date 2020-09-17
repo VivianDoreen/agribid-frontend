@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -8,7 +8,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import Logout from '../../components/Logout';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -21,6 +20,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import { Link } from 'react-router-dom';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Logout from '../../components/Logout';
 
 const jwt = require('jsonwebtoken');
 
@@ -89,6 +89,7 @@ export default function PersistentDrawerLeft() {
 	const theme = useTheme();
 	const [ open, setOpen ] = React.useState(true);
 	const [ menuState, setMenuState ] = useState('');
+	const [ token, setToken ] = useState('');
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -98,8 +99,12 @@ export default function PersistentDrawerLeft() {
 		setOpen(false);
 	};
 
-	const token = localStorage.getItem('token');
+	// const token = localStorage.getItem('token');
 	const decoded = jwt.decode(token);
+
+	useEffect(() => {
+		setToken(localStorage.getItem('token'));
+	}, []);
 
 	return (
 		<div className={classes.root}>
@@ -144,10 +149,10 @@ export default function PersistentDrawerLeft() {
 				</div>
 				<Divider />
 				<List>
-					{[ 'Dashboard', 'Produce', 'Requests' ].map((text, index) => (
+					{[ 'Dashboard', 'Orders' ].map((text, index) => (
 						<ListItem button key={text}>
 							{/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-							<Link to={`farmer/${text}`} style={{ textDecoration: 'none', color: '#389683' }}>
+							<Link to={`${text}`} style={{ textDecoration: 'none', color: '#389683' }}>
 								<ListItemText primary={text} />
 							</Link>
 						</ListItem>
@@ -155,10 +160,12 @@ export default function PersistentDrawerLeft() {
 				</List>
 				<Divider />
 				<List>
-					{[ 'Payments', 'Reports' ].map((text, index) => (
+					{[ 'Payments', 'Reports', 'Contact Support' ].map((text, index) => (
 						<ListItem button key={text}>
 							{/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-							<ListItemText primary={text} />
+							<Link to={`s${text}`} style={{ textDecoration: 'none' }}>
+								<ListItemText primary={text} />
+							</Link>
 						</ListItem>
 					))}
 				</List>
@@ -169,7 +176,7 @@ export default function PersistentDrawerLeft() {
 				})}
 			>
 				<div className={classes.drawerHeader} />
-				<h1>Farmer Dashboard</h1>
+				<h1>Client Dashboard</h1>
 			</main>
 		</div>
 	);

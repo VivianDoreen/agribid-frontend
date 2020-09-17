@@ -19,6 +19,7 @@ import Select from '@material-ui/core/Select';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Redirect } from 'react-router';
+const jwt = require('jsonwebtoken');
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -71,14 +72,6 @@ const DialogActions = withStyles((theme) => ({
 	}
 }))(MuiDialogActions);
 
-//third party components
-// import { Container, Menu } from 'semantic-ui-react';
-
-//scss
-// import '../../styles/components/nav.scss';
-
-// const jwt = require('jsonwebtoken');
-
 const Nav = (props) => {
 	const [ open, setOpen ] = useState(false);
 	const [ loginOpen, setLoginOpen ] = useState(false);
@@ -90,6 +83,7 @@ const Nav = (props) => {
 		confirm_password: '',
 		role: ''
 	});
+	const [ userDetails, setUserDetails ] = useState({});
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -161,7 +155,6 @@ const Nav = (props) => {
 			})
 			.catch((error) => console.log(error));
 	};
-
 	const handleLoginSubmit = (e) => {
 		e.preventDefault();
 		if (user.email === '' || user.password === '') {
@@ -191,32 +184,35 @@ const Nav = (props) => {
 						if (response.message === 'Invalid username and password') {
 							toast.error('Invalid username or password');
 						} else {
+							setUserDetails(response);
 							setUser((user) => ({
 								...user,
 								email: '',
 								password: ''
 							}));
 							localStorage.setItem('token', response['x-access-token']);
+							localStorage.setItem('role', response['role']);
 							toast.success('Successfully Logged In');
 							setIsLoggedIn(true);
-							console.log(response, 'responseresponse');
-							console.log(props, 'props');
 						}
 					}
 				})
 				.catch((error) => console.log(error));
 		}
 	};
-	// const token = localStorage.getItem('token');
-	// const decoded = jwt.decode(token);
+	const token = localStorage.getItem('token');
+	const decoded = jwt.decode(token);
+	console.log(userDetails.role, 'Tokennnn');
 	const classes = useStyles();
 
 	return (
 		<div className='grid-container-nav' style={{ float: 'right' }}>
-			{isLoggedIn ? (
+			{isLoggedIn && userDetails.role === 'farmer' ? (
 				<div>
 					<Redirect to='/farmer' />
 				</div>
+			) : isLoggedIn && userDetails.role === 'client' ? (
+				<Redirect to='/client' />
 			) : (
 				<div>
 					<div style={{ marginRight: 20, marginTop: 23 }}>
@@ -267,6 +263,7 @@ const Nav = (props) => {
 									<TextField
 										id='outlined-basic'
 										label='password'
+										type='password'
 										value={user.password}
 										name='password'
 										variant='outlined'

@@ -140,11 +140,7 @@ const EnhancedTableToolbar = (props) => {
 				<Typography className={classes.title} color='inherit' variant='subtitle1' component='div'>
 					{numSelected} selected
 				</Typography>
-			) : (
-				<Typography className={classes.title} variant='h6' id='tableTitle' component='div'>
-					Farmer Produce List
-				</Typography>
-			)}
+			) : null}
 
 			{numSelected > 0 ? (
 				<Tooltip title='Delete'>
@@ -211,16 +207,16 @@ export default function EnhancedTable() {
 			},
 			mode: 'cors'
 		};
-		fetch('https://agribidtech.herokuapp.com/api/v1/farmerProduce', config)
+		fetch('https://agribidtech.herokuapp.com/api/v1/clientRequest', config)
 			.then((response) => {
 				const statusCode = response.status;
 				console.log(statusCode, 'status_code');
 				return response.json();
 			})
 			.then((response) => {
-				setProduce(response.farmerProduce);
-				setRows(response.farmerProduce);
-				console.log(response.farmerProduce, 'response');
+				setProduce(response.clientRequest);
+				setRows(response.clientRequest);
+				console.log(response, 'response');
 			})
 			.catch((error) => console.log(error));
 	}, []);
@@ -272,7 +268,7 @@ export default function EnhancedTable() {
 
 	const isSelected = (name) => selected.indexOf(name) !== -1;
 
-	const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+	const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows && rows.length - page * rowsPerPage);
 
 	console.log(produce, 'producecc');
 
@@ -294,33 +290,34 @@ export default function EnhancedTable() {
 							orderBy={orderBy}
 							onSelectAllClick={handleSelectAllClick}
 							onRequestSort={handleRequestSort}
-							rowCount={rows.length}
+							rowCount={rows && rows.length}
 						/>
 						<TableBody>
-							{rows.map((row, index) => {
-								console.log(row, 'popoppop');
-								const isItemSelected = isSelected(row.name);
-								const labelId = `enhanced-table-checkbox-${index}`;
+							{rows &&
+								rows.map((row, index) => {
+									console.log(row, 'popoppop');
+									const isItemSelected = isSelected(row.name);
+									const labelId = `enhanced-table-checkbox-${index}`;
 
-								return (
-									<TableRow
-										hover
-										onClick={(event) => handleClick(event, row.name)}
-										role='checkbox'
-										aria-checked={isItemSelected}
-										tabIndex={-1}
-										key={row.id}
-										selected={isItemSelected}
-									>
-										<TableCell padding='checkbox'>
-											<Checkbox checked={isItemSelected} inputProps={{ 'aria-labelledby': labelId }} />
-										</TableCell>
-										<TableCell>{row.produce}</TableCell>
-										<TableCell>{row.quantity}</TableCell>
-										<TableCell>{row.unit_price}</TableCell>
-									</TableRow>
-								);
-							})}
+									return (
+										<TableRow
+											hover
+											onClick={(event) => handleClick(event, row.name)}
+											role='checkbox'
+											aria-checked={isItemSelected}
+											tabIndex={-1}
+											key={row.id}
+											selected={isItemSelected}
+										>
+											<TableCell padding='checkbox'>
+												<Checkbox checked={isItemSelected} inputProps={{ 'aria-labelledby': labelId }} />
+											</TableCell>
+											<TableCell>{row.produce}</TableCell>
+											<TableCell>{row.quantity}</TableCell>
+											<TableCell>{row.unit_price}</TableCell>
+										</TableRow>
+									);
+								})}
 							{emptyRows > 0 && (
 								<TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
 									<TableCell colSpan={6} />
@@ -332,7 +329,7 @@ export default function EnhancedTable() {
 				<TablePagination
 					rowsPerPageOptions={[ 5, 10, 25 ]}
 					component='div'
-					count={rows.length}
+					count={rows && rows.length}
 					rowsPerPage={rowsPerPage}
 					page={page}
 					onChangePage={handleChangePage}
