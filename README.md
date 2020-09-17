@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## AGRIBID
 
-## Available Scripts
+## About Us
+AgriBid is a digital market place that showcases agricultural products for sale. Users can register as buyers or suppliers, and bid to supply bulk orders of produce and other products. 
+Our solution can be used by restaurants, hotels, beverage factories and other companies that regularly purchase bulk orders from farmers or market vendors
+We aim to help Agri-Businesses access larger markets by connecting them directly to big corporate clients, and enables them to make transactions in a safe, efficient & transparent way.
 
-In the project directory, you can run:
+## Problem Statement:
 
-### `yarn start`
+Women in Agri-Business, especially farmers & market vendors struggle to connect to markets beyond their regions, and fail to sell their products at competitive market rates due to exploitative middlemen.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Solution:
+A Digital Market Place that connects Agri-Businesses directly to big corporate clients, and enables them to make transactions in a safe, efficient & transparent way. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Technologies Used:
+Python Flusk for backend, React.js for frontend , Github, Slack & Zoom for collaboration
 
-### `yarn test`
+## Mojaloop Integration:
+Payment switch for secure payments across different accounts with Escrow security feature 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Level One Principles Included within the system:
+Pricing transparency, User friendly interface design, Notifications, Data Privacy, Secure payment transactions
 
-### `yarn build`
+## View our User Journey Prototype:
+Use this link to view a high fidelity prototype
+https://marvelapp.com/prototype/7bhf5fa/screen/72748036
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Test Our Minimal Viable Product:
+• Frontend Repo: https://github.com/VivianDoreen/agribid-frontend
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+• Backend Repo: https://github.com/VivianDoreen/agribid
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## The Development Team
 
-### `yarn eject`
+### Team Affinity - Women in Fintech Hackathon 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Maria Musimenta - Team Leader
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contact: mmusimenta@gmail.com
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Liz Kamugisha - UI / UX Designer
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Contact: liz.kamugisha@gmail.com
 
-## Learn More
+Vivian Doreen Nabulo - Product Developer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contact: nabulovivian2014@gmail.com
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Famious Orishaba - Cyber Security
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Contact: fameousmj@gmail.com
