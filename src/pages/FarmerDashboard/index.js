@@ -101,6 +101,8 @@ export default function PersistentDrawerLeft() {
 	const token = localStorage.getItem('token');
 	const decoded = jwt.decode(token);
 
+	console.log(token, 'tokenFarmer');
+
 	return (
 		<div className={classes.root}>
 			<CssBaseline />

@@ -7,14 +7,19 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import InputLabel from '@material-ui/core/InputLabel';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+import FormControl from '@material-ui/core/FormControl';
 import Toolbar from '@material-ui/core/Toolbar';
+import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import { Button } from '@material-ui/core';
 import Tooltip from '@material-ui/core/Tooltip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -50,7 +55,8 @@ function stableSort(array, comparator) {
 const headCells = [
 	{ id: 'calories', numeric: true, disablePadding: false, label: 'Produce' },
 	{ id: 'fat', numeric: true, disablePadding: false, label: 'Quantity' },
-	{ id: 'carbs', numeric: true, disablePadding: false, label: 'Unit Price' }
+	{ id: 'carbs', numeric: true, disablePadding: false, label: 'Unit Price' },
+	{ id: 'carddbs', numeric: true, disablePadding: false, label: 'Status' }
 ];
 
 function EnhancedTableHead(props) {
@@ -315,6 +321,23 @@ export default function EnhancedTable() {
 											<TableCell>{row.produce}</TableCell>
 											<TableCell>{row.quantity}</TableCell>
 											<TableCell>{row.unit_price}</TableCell>
+											<TableCell>
+												<div>
+													<FormControl variant='outlined' className={classes.formControl} style={{ width: 100 }}>
+														<InputLabel id='demo-simple-select-outlined-label'>Pending</InputLabel>
+														<Select
+															labelId='demo-simple-select-outlined-label'
+															id='demo-simple-select-outlined'
+															label='role'
+															name='role'
+														>
+															<MenuItem value='farmer'>Rejected</MenuItem>
+															<MenuItem value='farmer'>Pending</MenuItem>
+															<MenuItem value='client'>Delivered</MenuItem>
+														</Select>
+													</FormControl>
+												</div>
+											</TableCell>
 										</TableRow>
 									);
 								})}

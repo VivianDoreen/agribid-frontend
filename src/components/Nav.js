@@ -1,7 +1,10 @@
 //react
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import { loginUserRequest, fetchTokenRequest } from '../pages/Login/store/actions';
+import { getUser, getError, getIsLoading, getToken } from '../pages/Login/store/selectors';
 import { Link } from 'react-router-dom';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -19,8 +22,32 @@ import Select from '@material-ui/core/Select';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Redirect } from 'react-router';
+import Api from '../services/Api';
+import useSWR from 'swr';
+import axios from 'axios';
+import { ContextUse } from '../ContextUse';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+
 const jwt = require('jsonwebtoken');
 
+const useMedia = (query) => {
+	console.log(window.matchMedia(query), 'matches');
+	let [ matches, setMatches ] = useState(window.matchMedia(query).matches);
+	useEffect(
+		() => {
+			let media = window.matchMedia(query);
+			if (media.matches !== matches) {
+				setMatches(media.matches);
+			}
+			let listener = () => setMatches(media.matches);
+			media.addListener(listener);
+			return () => media.removeListener(listener);
+		},
+		[ query ]
+	);
+
+	return matches;
+};
 const useStyles = makeStyles((theme) => ({
 	root: {
 		'& > *': {
@@ -76,6 +103,7 @@ const Nav = (props) => {
 	const [ open, setOpen ] = useState(false);
 	const [ loginOpen, setLoginOpen ] = useState(false);
 	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+	const [ token, setToken ] = useState(localStorage.getItem('token'));
 	const [ user, setUser ] = useState({
 		name: '',
 		email: '',
@@ -83,7 +111,22 @@ const Nav = (props) => {
 		confirm_password: '',
 		role: ''
 	});
+
+	// const { globalToken, setGlobalToken } = useContext(ContextUse);
+
 	const [ userDetails, setUserDetails ] = useState({});
+
+	useEffect(
+		() => {
+			console.log(isLoggedIn, 'isLoggedInNAV');
+			if (isLoggedIn) {
+				console.log(localStorage.getItem('token'), 'yes');
+			} else {
+				console.log('No');
+			}
+		},
+		[ token, isLoggedIn ]
+	);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -103,13 +146,11 @@ const Nav = (props) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setUser((state) => ({ ...state, [name]: value }));
-		console.log(name, 'e.target');
 	};
 
 	const handleLoginChange = (e) => {
 		const { name, value } = e.target;
 		setUser((state) => ({ ...state, [name]: value }));
-		console.log(name, 'e.target');
 	};
 
 	const handleSubmit = (e) => {
@@ -134,7 +175,6 @@ const Nav = (props) => {
 		fetch('https://agribidtech.herokuapp.com/api/v1/auth/signup', config)
 			.then((response) => {
 				const statusCode = response.status;
-				console.log(statusCode, 'status_code');
 				return response.json();
 			})
 			.then((response) => {
@@ -160,49 +200,16 @@ const Nav = (props) => {
 		if (user.email === '' || user.password === '') {
 			toast.error('email and password required');
 		} else {
-			const config = {
-				method: 'POST',
-				headers: {
-					'content-type': 'application/json',
-					Accept: 'application/json'
-				},
-				mode: 'cors',
-				body: JSON.stringify({
-					email: user.email,
-					password: user.password
-				})
+			const data = {
+				email: user.email,
+				password: user.password
 			};
 
-			fetch('https://agribidtech.herokuapp.com/api/v1/auth/login', config)
-				.then((response) => {
-					const statusCode = response.status;
-					console.log(statusCode, 'status_code');
-					return response.json();
-				})
-				.then((response) => {
-					if (response) {
-						if (response.message === 'Invalid username and password') {
-							toast.error('Invalid username or password');
-						} else {
-							setUserDetails(response);
-							setUser((user) => ({
-								...user,
-								email: '',
-								password: ''
-							}));
-							localStorage.setItem('token', response['x-access-token']);
-							localStorage.setItem('role', response['role']);
-							toast.success('Successfully Logged In');
-							setIsLoggedIn(true);
-						}
-					}
-				})
-				.catch((error) => console.log(error));
+			props.loginUserRequest(data);
 		}
 	};
-	const token = localStorage.getItem('token');
 	const decoded = jwt.decode(token);
-	console.log(userDetails.role, 'Tokennnn');
+	console.log(props.auth, 'LoginReducer');
 	const classes = useStyles();
 
 	return (
@@ -222,6 +229,15 @@ const Nav = (props) => {
 						>
 							<Link to='/' style={{ textDecoration: 'none' }}>
 								Home
+							</Link>
+						</Button>
+						<Button
+							variant='outlined'
+							style={{ backgroundColor: 'blue', fontWeight: 'bold', margin: 5, color: '#000000', minWidth: 115 }}
+						>
+							<Link to='/cart' style={{ textDecoration: 'none', color: '#ffffff' }}>
+								<ShoppingBasketIcon style={{ color: 'red', position: 'absolute', top: 4, left: 6 }} /> Cart{' '}
+								<span>0</span>
 							</Link>
 						</Button>
 						<Button
@@ -383,4 +399,19 @@ const Nav = (props) => {
 	);
 };
 
-export default Nav;
+export const mapStateToProps = (state) => {
+	return {
+		auth: state.loginReducer,
+		getUser: getUser(state),
+		getError: getError(state),
+		getIsLoading: getIsLoading(state),
+		getToken: getToken(state)
+	};
+};
+
+export const mapDispatchToProps = {
+	loginUserRequest,
+	fetchTokenRequest
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
