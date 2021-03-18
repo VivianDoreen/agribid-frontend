@@ -23,9 +23,6 @@ const Header = (props) => {
 				backgroundColor: '#389683'
 			}}
 		>
-			<Button className={classes.buttonStyle} variant='outlined'>
-				Hi there
-			</Button>
 			<Nav />
 		</div>
 	);
