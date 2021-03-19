@@ -183,6 +183,105 @@ const Home = () => {
 						</div>
 					</div>
 				</div>
+
+				<div
+					class='bg-grey my-3 py-4 position-relative'
+					style={{ width: '1000px', display: 'flex', margin: '-10px auto' }}
+				>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead' />
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+								Add to cart
+							</Button>
+						</div>
+					</div>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead' />
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+								Add to cart
+							</Button>
+						</div>
+					</div>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead' />
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+								Add to cart
+							</Button>
+						</div>
+					</div>
+				</div>
 			</main>
 			{/* <main style={{ marginTop: 60 }}>
 				<div style={{ width: '70%', margin: '0px auto', display: 'flex', flexWrap: 'wrap' }}>
