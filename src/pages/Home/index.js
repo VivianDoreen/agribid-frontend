@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Header from '../../components/Header';
 import Chicken from '../../images-agribid/AgriBidChickenIcon.jpg';
-import Slider from '../../images-agribid/slider.png';
+import Slider from '../../images-agribid/AgriBidProduce.jpg';
 import axios from '../../plugins/axios';
 import Cow from '../../images-agribid/AgriBidCowIcon.jpg';
 import Spice from '../../images-agribid/AgriBidSpiceIcon.jpg';
@@ -10,6 +10,7 @@ import Fruit from '../../images-agribid/AgriBidFruitIcon.jpg';
 import Fish from '../../images-agribid/AgriBidFishIcon.jpg';
 import Eggs from '../../images-agribid/AgriBidEggsIcon.jpg';
 import Veg from '../../images-agribid/AgriBidVegIcon.jpg';
+import Mango from '../../images-agribid/mango.jpeg';
 import Api from '../../services/Api';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -20,12 +21,18 @@ import Typography from '@material-ui/core/Typography';
 import { ContextUse, useTheme, useThemUpdate } from '../../ContextUse';
 import { useAuthContext } from '../../Auth';
 
-//stale while revalidate
-import useSWR from 'swr';
+const products = [
+	{
+		image: '',
+		name: 'chicken',
+		price: '30000 Ugx'
+	}
+];
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		minWidth: 275
+		minWidth: 275,
+		padding: 0
 	},
 	bullet: {
 		display: 'inline-block',
@@ -72,15 +79,190 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
 	const classes = useStyles();
-	const users = Api.fetchUsers;
-
-	const { data: user, error } = useSWR(`farmerProduce`, users);
 	const cool = false;
+
 	return (
 		<div>
 			<Header cool={cool} />
-			<img src={Slider} className='logo' alt='' style={{ width: 1450, height: 200 }} />
-			<main style={{ marginTop: 20 }}>
+			<main style={{ marginTop: '12em' }}>
+				<div
+					class='bg-grey my-3 py-4 position-relative'
+					style={{ width: '1000px', display: 'flex', margin: '0px auto' }}
+				>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead'>
+								<a href='#' class='text-success d-title'>
+									dddd
+									{/* {trip.title} */}
+								</a>
+							</h4>
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<a
+								href='trips/<?php echo $paginated_trip->slug ?>'
+								title='View More Information'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-info-circle' />
+							</a>
+							<a
+								href='/lets-start-planning'
+								title='Make Enquiry'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-comment-dots' />
+							</a>
+						</div>
+					</div>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead'>
+								<a href='#' class='text-success d-title'>
+									dddd
+									{/* {trip.title} */}
+								</a>
+							</h4>
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<a
+								href='trips/<?php echo $paginated_trip->slug ?>'
+								title='View More Information'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-info-circle' />
+							</a>
+							<a
+								href='/lets-start-planning'
+								title='Make Enquiry'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-comment-dots' />
+							</a>
+						</div>
+					</div>
+					<div class='card shadow-sm m-2' data-type='main' data-category='{trip.category}'>
+						<img
+							data-src={`https://vault.pcs.the-true-jones.com/images/9840302201019000000056?w=720&h=405`}
+							src={Mango}
+							height='188px'
+							class='card-img-top'
+						/>
+						<div class='card-body'>
+							<h4 class='card-title mb-1 lead'>
+								<a href='#' class='text-success d-title'>
+									dddd
+									{/* {trip.title} */}
+								</a>
+							</h4>
+							<div class='d-flex justify-content-between align-items-center mb-2'>
+								<span class='text-muted'>
+									<span class='badge badge-secondary' title='no of activities in this trip'>
+										<i class='fas fa-hiking mr-1' />2
+									</span>
+									<span class='badge badge-success' title='no of accomodations in this trip'>
+										<i class='fas fa-hotel mr-1' />5
+									</span>
+									<span class='badge badge-danger' title='no of destinations in this trip'>
+										<i class='fas fa-globe-africa mr-1' />9
+									</span>
+								</span>
+								<div class='small'>Ratings</div>
+							</div>
+							<p class='card-text'>Mangoes</p>
+						</div>
+						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
+							<a
+								href='trips/<?php echo $paginated_trip->slug ?>'
+								title='View More Information'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-info-circle' />
+							</a>
+							<a
+								href='/lets-start-planning'
+								title='Make Enquiry'
+								class='btn btn-sm rounded-pill btn-outline-success  m-2'
+							>
+								<i class='fas fa-comment-dots' />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div style={{ width: '70%', margin: '0px auto', display: 'flex', flexWrap: 'wrap' }}>
+					<Card className={classes.root}>
+						<CardContent>
+							<img
+								src={Mango}
+								className='logo'
+								alt=''
+								style={{
+									border: '1px solid #000000',
+									borderRadius: 5,
+									margin: 0,
+									// marginRight: 20,
+									// marginBottom: 20,
+									width: 250,
+									cursor: 'pointer'
+								}}
+							/>
+							<Typography variant='body2' component='p'>
+								Chicken
+								<br />
+								1kg 20000
+							</Typography>
+						</CardContent>
+						<CardActions>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+								Add to cart
+							</Button>
+						</CardActions>
+					</Card>
+				</div>
+			</main>
+			{/* <main style={{ marginTop: 60 }}>
 				<div style={{ width: '70%', margin: '0px auto', display: 'flex', flexWrap: 'wrap' }}>
 					<Card className={classes.root}>
 						<CardContent>
@@ -330,7 +512,7 @@ const Home = () => {
 						<div className={classes.overlay}>My Name is John</div>
 					</div>
 				</div>
-			</main>
+			</main> */}
 		</div>
 	);
 };
