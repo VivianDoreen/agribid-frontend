@@ -1,6 +1,7 @@
 ## AGRIBID
 
 - Is a web based, mobile-based and ussd platform that links farmers to the final consumer
+- Live demo:-  https://agribid-frontend.herokuapp.com/ 
 
 ## HOW TO RUN THE APPLICATION
 ### `yarn start`
