@@ -19,7 +19,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { ContextUse, useTheme, useThemUpdate } from '../../ContextUse';
-import { useAuthContext } from '../../Auth';
+// import { useAuthContext } from '../../Auth';
 
 const products = [
 	{

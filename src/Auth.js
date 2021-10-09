@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
 
 	useEffect(() => {
 		// checkAuth();
-		console.log('TTTTTTTTTTTTT');
 		const xx = Api.getUser({
 			email: 'maria@gmail.com',
 			password: '123'

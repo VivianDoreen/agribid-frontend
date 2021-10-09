@@ -31,7 +31,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 const jwt = require('jsonwebtoken');
 
 const useMedia = (query) => {
-	console.log(window.matchMedia(query), 'matches');
+	// console.log(window.matchMedia(query), 'matches');
 	let [ matches, setMatches ] = useState(window.matchMedia(query).matches);
 	useEffect(
 		() => {
@@ -102,7 +102,7 @@ const DialogActions = withStyles((theme) => ({
 const Nav = (props) => {
 	const [ open, setOpen ] = useState(false);
 	const [ loginOpen, setLoginOpen ] = useState(false);
-	const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+	const [ isLoggedIn, setIsLoggedIn ] = useState(props.auth.user['role']);
 	const [ token, setToken ] = useState(localStorage.getItem('token'));
 	const [ user, setUser ] = useState({
 		name: '',
@@ -112,6 +112,9 @@ const Nav = (props) => {
 		role: ''
 	});
 
+	console.log(isLoggedIn, 'AUTHAUTHAUTHAUTH');
+	console.log(props.auth.user['role'], 'tokentokentokentokenAUTHAUTHAUTHAUTH');
+
 	// const { globalToken, setGlobalToken } = useContext(ContextUse);
 
 	const [ userDetails, setUserDetails ] = useState({});
@@ -120,7 +123,7 @@ const Nav = (props) => {
 		() => {
 			console.log(isLoggedIn, 'isLoggedInNAV');
 			if (isLoggedIn) {
-				console.log(localStorage.getItem('token'), 'yes');
+				console.log(localStorage.getItem('token1'), 'yes');
 			} else {
 				console.log('No');
 			}
@@ -204,21 +207,28 @@ const Nav = (props) => {
 				email: user.email,
 				password: user.password
 			};
-
 			props.loginUserRequest(data);
 		}
 	};
-	const decoded = jwt.decode(token);
-	console.log(props.auth, 'LoginReducer');
+
+	localStorage.setItem('token1', props.auth.token);
+
+	const decoded = jwt.decode(props.auth.token);
+
+	console.log(decoded, 'PPPPPPPPQQQQQQAAAAAGGGG');
+	console.log(props.auth.user['role'], 'USERUSERUSERUSERUSER');
+
+	console.log(isLoggedIn, 'DDDDDDDD');
+
 	const classes = useStyles();
 
 	return (
 		<div className='grid-container-nav' style={{ float: 'right' }}>
-			{isLoggedIn && userDetails.role === 'farmer' ? (
+			{props.auth.user['role'] !== undefined && props.auth.user['role'] === 'farmer' ? (
 				<div>
 					<Redirect to='/farmer' />
 				</div>
-			) : isLoggedIn && userDetails.role === 'client' ? (
+			) : props.auth.user['role'] !== undefined && props.auth.user['role'] === 'client' ? (
 				<Redirect to='/client' />
 			) : (
 				<div>
