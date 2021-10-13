@@ -53,7 +53,7 @@ const Header = (props) => {
 						// padding: '10px 0px 10px 0px'
 					}}
 				>
-					Agricultural Products at your fingure tips
+					Agricultural Productservices and at your fingure tips
 				</div>
 				<Toolbar>
 					<TextField
