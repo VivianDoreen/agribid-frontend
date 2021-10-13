@@ -393,7 +393,7 @@ export default function PersistentDrawerLeft() {
 						style={{
 							cursor: 'pointer',
 							border: 'none',
-							backgroundColor: '#56D393',
+							backgroundColor: '#03AC13',
 							margin: 5,
 							fontWeight: 'bold',
 							height: '30px',
@@ -434,7 +434,7 @@ export default function PersistentDrawerLeft() {
 									style={{
 										cursor: 'pointer',
 										border: 'none',
-										backgroundColor: '#56D393',
+										backgroundColor: '#03AC13',
 										margin: 5,
 										fontWeight: 'bold',
 										height: '50px',

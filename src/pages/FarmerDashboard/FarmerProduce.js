@@ -295,7 +295,7 @@ export default function PersistentDrawerLeft() {
 					<p style={{ float: 'right', marginRight: 15 }}>
 						<Button
 							onClick={handleClickOpen}
-							style={{ backgroundColor: '#56D393', fontWeight: 'bold', margin: 5 }}
+							style={{ backgroundColor: '#03AC13', fontWeight: 'bold', margin: 5 }}
 							variant='contained'
 						>
 							Add
@@ -351,7 +351,7 @@ export default function PersistentDrawerLeft() {
 											style={{
 												cursor: 'pointer',
 												border: 'none',
-												backgroundColor: '#56D393',
+												backgroundColor: '#03AC13',
 												margin: 5,
 												fontWeight: 'bold',
 												height: '30px',

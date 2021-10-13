@@ -31,7 +31,7 @@ const Header = (props) => {
 			style={{
 				color: 'green',
 				height: 100,
-				backgroundColor: '#389683'
+				backgroundColor: '#03AC13'
 			}}
 		>
 			<img src={agribid} style={{ margin: '8px 0px 0px 14px' }} />

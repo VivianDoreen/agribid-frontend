@@ -243,9 +243,9 @@ const Nav = (props) => {
 						</Button>
 						<Button
 							variant='outlined'
-							style={{ backgroundColor: 'blue', fontWeight: 'bold', margin: 5, color: '#000000', minWidth: 115 }}
+							style={{ backgroundColor: 'white', fontWeight: 'bold', margin: 5, color: '#000000', minWidth: 115 }}
 						>
-							<Link to='/cart' style={{ textDecoration: 'none', color: '#ffffff' }}>
+							<Link to='/cart' style={{ textDecoration: 'none', color: '#000000' }}>
 								<ShoppingBasketIcon style={{ color: 'red', position: 'absolute', top: 4, left: 6 }} /> Cart{' '}
 								<span>0</span>
 							</Link>
@@ -253,14 +253,14 @@ const Nav = (props) => {
 						<Button
 							variant='outlined'
 							onClick={handleClickLoginOpen}
-							style={{ backgroundColor: '#56D393', fontWeight: 'bold', margin: 5, minWidth: 120 }}
+							style={{ backgroundColor: 'white', fontWeight: 'bold', margin: 5, minWidth: 120 }}
 						>
 							Login
 						</Button>
 						<Button
 							variant='outlined'
 							onClick={handleClickOpen}
-							style={{ backgroundColor: '#56D393', fontWeight: 'bold', margin: 5, minWidth: 120 }}
+							style={{ backgroundColor: 'white', fontWeight: 'bold', margin: 5, minWidth: 120 }}
 						>
 							Register
 						</Button>
@@ -302,7 +302,7 @@ const Nav = (props) => {
 										style={{
 											cursor: 'pointer',
 											border: 'none',
-											backgroundColor: '#56D393',
+											backgroundColor: '#03AC13',
 											margin: 5,
 											fontWeight: 'bold',
 											height: '50px',
@@ -390,7 +390,7 @@ const Nav = (props) => {
 										style={{
 											cursor: 'pointer',
 											border: 'none',
-											backgroundColor: '#56D393',
+											backgroundColor: '#03AC13',
 											margin: 5,
 											fontWeight: 'bold',
 											height: '50px',

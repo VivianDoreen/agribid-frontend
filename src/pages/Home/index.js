@@ -115,7 +115,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -146,7 +146,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -177,7 +177,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -214,7 +214,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -245,7 +245,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -276,7 +276,7 @@ const Home = () => {
 							<p class='card-text'>Mangoes</p>
 						</div>
 						<div class='card-footer text-center border-top-0 bg-white pb-2 pt-0'>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</div>
@@ -307,7 +307,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -334,7 +334,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -361,7 +361,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -388,7 +388,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -415,7 +415,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -442,7 +442,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -469,7 +469,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -496,7 +496,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>
@@ -523,7 +523,7 @@ const Home = () => {
 							</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant='contained' size='small' style={{ backgroundColor: '#56D393' }}>
+							<Button variant='contained' size='small' style={{ backgroundColor: '#03AC13' }}>
 								Add to cart
 							</Button>
 						</CardActions>

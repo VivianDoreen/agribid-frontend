@@ -56,7 +56,7 @@ const RegisterUser = () => {
 				<input type='text' placeholder='Name' name='name' onChange={handleChange} />
 				<br />
 				<br />
-				<input type='email' placeholder='Email' name='email' onChange={handleChange} />
+				<input type='email' placeholder='Email' name='email' required onChange={handleChange} />
 				<br />
 				<br />
 				<input type='password' placeholder='Password' name='password' onChange={handleChange} />
